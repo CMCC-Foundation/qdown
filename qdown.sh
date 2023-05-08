@@ -42,7 +42,7 @@ do
 
 	echo "$q_name : $q_limit_hr hr $q_limit_min min"
 
-	queue_downtime=$(date -d "$downtime_hour - $q_limit_min minutes" '+%Y-%m-%d %H:%M') # | date '+%Y%m%d%H%M') 
+	queue_downtime=$(date -d "- $q_limit_min minutes $downtime_hour" '+%Y-%m-%d %H:%M') # | date '+%Y%m%d%H%M') 
 	echo "$q_name downtime: $queue_downtime"
 	queue_downtime_flat=$(date -d "$queue_downtime" '+%Y%m%d%H%M')
 	echo "downtime_flat: $queue_downtime_flat"
