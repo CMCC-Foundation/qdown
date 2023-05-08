@@ -48,8 +48,8 @@ do
 	echo "downtime_flat: $queue_downtime_flat"
 	
 	## Decomment these lines at your own risk!!
-	#echo "badmin qclose $q_name" | at -t $queue_downtime
-	#echo "badmin qinact $q_name" | at -t $queue_downtime
+	#echo "badmin qclose $q_name" | at -t $queue_downtime_flat
+	#echo "badmin qinact $q_name" | at -t $queue_downtime_flat
 
 
 done
