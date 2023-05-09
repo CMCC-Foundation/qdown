@@ -45,7 +45,7 @@ fi
 
 echo "specified downtime_hour: $downtime_hour"
 
-timetable='<table><br><tr style=\"color: black; font-weight: bold,italic; background-color: gray;\"><th>Queue</th><th>Scheduled Closing-Inactivating</th></tr><br>'
+timetable='<br><table style=\"border:1px solid black;\"><tr style=\"color: black; font-weight: bold,italic; background-color: gray;\"><th>Queue</th><th>Scheduled Closing-Inactivating</th></tr>'
 
 #prova=("p_short 540.0" "s_long 360.0")
 
@@ -88,8 +88,7 @@ do
 
 done
 
-timetable="$timetable <br></table>"
-
+timetable="$timetable </table>"
 
 if [[ ! -z $MAIL_CMD ]] && [[ ! -z $MAIL_TO ]];
 then
@@ -103,7 +102,8 @@ then
         echo "Content-Type: text/html; charset=ISO-8859-15";
         echo "Content-Transfer-Encoding: 7bit";
         echo "";
-        echo "<html><style>table, th, td { border:1px solid black; } th, td { padding: 5px; } th { background-color: lightgray } </style><head><meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-15\"></head><body>Dear $CLUSTER_NAME Admins,<br>This is to inform you that, due to the Scheduled Downtime of <i>$downtime_hour</i>, the following queues: <br> $timetable <br> will be closed and inactivated for maintenance activities.<br><br><br>Best Regards,<br>Marco Chiarelli & Danilo Mazzarella.</body></html>";
+        echo "<html><head><style>table, th, td { border:1px solid black; } th, td { padding: 5px; } th { background-color: lightgray } </style><meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-15\"></head><body>Dear $CLUSTER_NAME Admins,<br>This is to inform you that, due to the Scheduled Downtime of <i>$downtime_hour</i>, the following queues: <br> $timetable <br> will be closed and inactivated for maintenance activities.<br><br><br>Best Regards,<br>Marco Chiarelli & Danilo Mazzarella.</body></html>";
+        #echo "<html><style>table, th, td { border:1px solid black; } th, td { padding: 5px; } th { background-color: lightgray } </style><head><meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-15\"></head><body>Dear $CLUSTER_NAME Admins,<br>This is to inform you that, due to the Scheduled Downtime of <i>$downtime_hour</i>, the following queues: <br> $timetable <br> will be closed and inactivated for maintenance activities.<br><br><br>Best Regards,<br>Marco Chiarelli & Danilo Mazzarella.</body></html>";
     ) | "$MAIL_CMD" -t "$MAIL_TO"
 fi
 
