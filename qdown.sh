@@ -22,6 +22,7 @@
 #source /etc/profile.d/lsf.sh
 ##################################################################################
 
+export LC_NUMERIC="en_US.UTF-8"
 IFS=$'\n'
 
 limit_hour=${2:-"9"}
