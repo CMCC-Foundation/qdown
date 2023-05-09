@@ -49,7 +49,7 @@ timetable='<table><br><tr style=\"color: black; font-weight: bold,italic; backgr
 
 #prova=("p_short 540.0" "s_long 360.0")
 
-for queue in ${prova[@]}; #$(bqueues -o "queue_name runlimit" | tail -n +2);
+for queue in $(bqueues -o "queue_name runlimit" | tail -n +2); #${prova[@]};
 do
 	q_name=$(echo $queue | cut -d' ' -f1)
 	q_limit=$(echo $queue | cut -d' ' -f2)
